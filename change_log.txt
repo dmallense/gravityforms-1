@@ -1,4 +1,9 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.0.1
+    - Fixed an issue with the Status Report incorrectly marking the REST API keys table as missing.
+    - API: Fixed the entry created by GFFormsModel::create_lead() containing false for website type fields instead of empty strings.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4
 
 	- Added security enhancements.

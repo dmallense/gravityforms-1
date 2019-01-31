@@ -693,6 +693,10 @@ function LoadFieldSettings(){
 		field = UpgradePasswordField(field);
 	}
 
+    if(field.type === 'consent'){
+        field = UpgradeConsentField(field);
+    }
+
     var defaultState = field.defaultState == undefined ? "" : field.defaultState;
     var defaultProvince = field.defaultProvince == undefined ? "" : field.defaultProvince; //for backwards compatibility
     var defaultStateProvince = addressType == "canadian" && defaultState == "" ? defaultProvince : defaultState;
@@ -1360,6 +1364,18 @@ function UpgradeAddressField(field){
         stateInput.isHidden = true;
     }
     delete field.hideState;
+
+    return field;
+}
+
+function UpgradeConsentField(field) {
+    if(field.type !== 'consent'){
+        return field;
+    }
+
+    if(field.choices[1] && field.choices[1]['value'] === "0"){
+        field.choices.pop();
+    }
 
     return field;
 }

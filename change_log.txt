@@ -1,4 +1,23 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.8
+	- API: Fixed PHP warning during form submission if an invalid entry id is returned by the gform_entry_id_pre_save_lead filter.
+	- API: Fixed an issue where existing values for registered entry meta could be lost when using the gform_entry_id_pre_save_lead filter to update an entry during form submission.
+	- API: Added GFAPI::entry_exists() to check if an entry exists for the supplied ID.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.7
+	- Removed "Not Checked" rule for the consent field in conditional logic JS.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.6
+	- Fixed issue where conditionally hidden Drop Down fields were evaluated as having a value via conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.5
+	- Added security enhancements.
+	- Updated link in disable logging notice to immediately disable logging.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.5.4
 	- Fixed an issue where use of some special characters, such as quotes, in the List field column label could prevent submission of the input value.
 	- Fixed an issue with the Rich Text Editor height when the Paragraph or Post Body field is displayed by conditional logic.
@@ -17,7 +36,7 @@ Version 2.4.5.2
 Version 2.4.5.1
 	- Updated reCAPTCHA settings description.
 	- Fixed the input mask type setting reverting to the standard choice after some custom masks are configured.
-                                            
+
 ------------------------------------------------------------------------------------------------------------------
 Version 2.4.5
 	- Added security enhancements.

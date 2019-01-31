@@ -473,10 +473,6 @@ class GF_Field_Consent extends GF_Field {
 				'value' => '1',
 				'text'  => esc_html__( 'Checked', 'gravityforms' ),
 			),
-			array(
-				'value' => '',
-				'text'  => esc_html__( 'Not Checked', 'gravityforms' ),
-			),
 		);
 
 		return $choices;

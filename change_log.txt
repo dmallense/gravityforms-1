@@ -1,4 +1,19 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.4
+	- Fixed an issue where use of some special characters, such as quotes, in the List field column label could prevent submission of the input value.
+	- Fixed an issue with the Rich Text Editor height when the Paragraph or Post Body field is displayed by conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.3
+	- Fixed some properties not being reset when the Product field input type is changed causing issues for the front-end calculations and conditional logic.
+	- Added the gform_field_validation to the Repeater field.
+	- API: Fixed returning repeater subfields via GFAPI::get_field()
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.5.2
+	- Fixed an issue with some Address field sub-labels when the form is displayed.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.5.1
 	- Updated reCAPTCHA settings description.
 	- Fixed the input mask type setting reverting to the standard choice after some custom masks are configured.

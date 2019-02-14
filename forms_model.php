@@ -3200,7 +3200,7 @@ class GFFormsModel {
 	 * @return false|int
 	 */
 	public static function purge_expired_incomplete_submissions( $expiration_days = 30 ) {
-		_deprecated_function( 'GFFormsModel::purge_expired_incomplete_submissions', '2.4', 'GFFormsModel::purge_expired_incomplete_submissions' );
+		_deprecated_function( 'GFFormsModel::purge_expired_incomplete_submissions', '2.4', 'GFFormsModel::purge_expired_draft_submissions' );
 		return self::purge_expired_draft_submissions( $expiration_days = 30 );
 	}
 
@@ -4533,8 +4533,9 @@ class GFFormsModel {
 
 	public static function media_handle_upload( $url, $post_id, $post_data = array() ) {
 
-		//WordPress Administration API required for the media_handle_upload() function
+		// WordPress Administration API required for the media_handle_upload() function.
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		require_once( ABSPATH . 'wp-admin/includes/media.php' );
 
 		$name = basename( $url );
 

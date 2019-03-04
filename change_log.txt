@@ -1,4 +1,20 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.6
+	- Fixed a PHP notice which occurs when paging and a List type field is hidden by conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.5
+	- Updated file deletion to not utilize WP_CONTENT_DIR and WP_CONTENT_URL.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.4
+	- API: Fixed an issue with GFAPI:get_field() for sub fields of a Repeater field.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.3
+	- Fixed issue where default and dynamically populated values in Single Product, Single Shipping and HTML5 input types were not correctly reset when hidden by conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.2
 	- Reverted conditional logic change in 2.4.6 which introduced performance issues for some form configurations.
 	- AF: Fixed Payment Add-On feeds not deactivating when deleting a credit card field from form.

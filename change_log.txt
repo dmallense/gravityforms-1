@@ -1,4 +1,13 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.8
+	- Added the gform_is_valid_formula_form_editor JS filter allowing the formula validation result to be overridden in the form editor.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.7
+	- Fixed multiple forms being created when hitting enter on the submit button in the Create Form modal.
+	- Updated usage of .screen-reader-text usage to be uniform with WordPress core.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.6
 	- Fixed a PHP notice which occurs when paging and a List type field is hidden by conditional logic.
 

@@ -1,4 +1,19 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.15
+	- Added screen reader support for Single File Upload field validation messages.
+	- Added security enhancements.
+	- Fixed an accessibility issue with the Single File Upload field where the field loses keyboard focus and jumps to the top of the page in some browsers.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.14
+	- Fixed an issue with the datepicker icon introduced in 2.4.6.10.
+	- Updated default form notification to include enabled isActive property.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.13
+	- Fixed JS error triggered when evaluating conditional logic for Credit Card fields.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.12
 	- Updated the use of "title" attributes in HTML tags.
 	- Fixed an issue with the next field ID in the form editor which doesn't recalculate when fields are added using the API. This fixes an issue when adding fields with the CLI and when adding Repeater fields.

@@ -1,4 +1,42 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.9
+	- API: Fixed a fatal error which occurred when using REST API v2 to get an entry which does not exist.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.8
+	- Fixed issue where Hidden Product hidden/shown by conditional logic did not have their price correctly reset.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.7
+	- Updated Chosen.js to v1.8.7.
+	- Fixed the Enhanced UI on the Option type field not retaining the selected choice.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.6
+	- Fixed an issue with files containing special characters not attaching to notifications.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.5
+	- API: Fixed an issue with GFAPI::update_form() when notifications/confirmations are included in the form using indexed arrays.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.4
+	- Fix issue where default value is not populated for empty inputs when other inputs have dynamically populated value.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.3
+	- Added 'gform_file_upload_status_markup' filter to allow modifying file upload markup while it is being uploaded.
+	- Fixed issue where default values were not repopulated into Multi Select fields when they are hidden via conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.2
+	- Fixed the price not being restored by conditional logic when the single product/shipping field has the unsupported choices property defined.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.1
+	- Fixed issue where datepicker failed to initialize when filtering Date fields in the Entry List filter.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.8
 	- Fixed notices generated when AF add-ons did not specify a $_capabilities_form_settings capability or specified an array of capabilities.
 	- Fixed an issue with the Gravity Forms widget introduced in v2.4.7 where forms are missing the gf_global JavaScript variable.

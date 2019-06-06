@@ -2635,8 +2635,7 @@ Content-Type: text/html;
 			}
 
 			$version_info['timestamp'] = time();
-      $version_info = json_decode( $raw_response['body'], true );
-      $version_info['is_valid_key'] = '1';
+
 			// Caching response.
 			update_option( 'gform_version_info', $version_info ); //caching version info
 		}

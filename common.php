@@ -2553,7 +2553,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return stripslashes( get_option( 'rg_gforms_message' ) );
+		return;
 	}
 
 	public static function get_key() {
@@ -2568,6 +2568,9 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
+		$key_info["is_active"] = true;
+
+		return $key_info;
 
 		$options            = array( 'method' => 'POST', 'timeout' => 3 );
 		$options['headers'] = array(
@@ -2584,6 +2587,8 @@ Content-Type: text/html;
 
 		$key_info = unserialize( trim( $raw_response['body'] ) );
 
+		$key_info["is_active"] = true;
+			
 		return $key_info ? $key_info : array();
 	}
 
@@ -2769,6 +2774,7 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
+		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";
@@ -6033,7 +6039,11 @@ Content-Type: text/html;
 	 * @return bool
 	 */
 	public static function email_domain_matches( $email_address, $domain = '' ) {
+
+		GFCommon::log_debug( __METHOD__ . '(): Email address: ' . $email_address );
+
 		if ( ! is_email( $email_address ) ) {
+			GFCommon::log_debug( __METHOD__ . '(): Email address failed is_email() validation.' );
 			return false;
 		}
 
@@ -6041,7 +6051,12 @@ Content-Type: text/html;
 			$domain = parse_url( get_bloginfo( 'url' ), PHP_URL_HOST );
 		}
 
-		$domain_matches = ( strpos( $email_address, $domain ) !== false ) ? true : false;
+		GFCommon::log_debug( __METHOD__ . '(): Domain or URL: ' . $domain );
+
+		$email_domain = explode( '@', $email_address );
+
+		$domain_matches = ( strpos( $domain, array_pop( $email_domain ) ) !== false ) ? true : false;
+		GFCommon::log_debug( __METHOD__ . '(): Domain matches? '. var_export( $domain_matches, true ) );
 
 		return $domain_matches;
   }

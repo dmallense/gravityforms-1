@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms
 Plugin URI: https://www.gravityforms.com
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.12.6
+Version: 2.4.14.3
 Author: rocketgenius
 Author URI: https://www.rocketgenius.com
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.12.6';
+	public static $version = '2.4.14.3';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -316,9 +316,7 @@ class GFForms {
 			}
 
 			// Load included Blocks.
-			foreach ( glob( plugin_dir_path( __FILE__ ) . 'includes/blocks/class-gf-block-*.php' ) as $filename ) {
-				require_once $filename;
-			}
+			GFCommon::glob_require_once( '/includes/blocks/class-gf-block-*.php' );
 
 		}
 
@@ -5188,7 +5186,7 @@ class GFForms {
 			return;
 		}
 		GFCommon::log_debug( __METHOD__ . '(): Start deleting old export files' );
-		foreach ( glob( $export_folder . DIRECTORY_SEPARATOR . '*.csv' ) as $filename ) {
+		foreach ( GFCommon::glob( '*.csv', $export_folder . DIRECTORY_SEPARATOR ) as $filename ) {
 			$timestamp = filemtime( $filename );
 			if ( $timestamp < time() - DAY_IN_SECONDS ) {
 				// Delete files over a day old
@@ -5220,7 +5218,7 @@ class GFForms {
 			return;
 		}
 		GFCommon::log_debug( __METHOD__ . '(): Start deleting old log files' );
-		foreach ( glob( $logs_folder . DIRECTORY_SEPARATOR . '*.txt' ) as $filename ) {
+		foreach ( GFCommon::glob( '*.txt', $logs_folder . DIRECTORY_SEPARATOR ) as $filename ) {
 			$timestamp = filemtime( $filename );
 			if ( $timestamp < time() - MONTH_IN_SECONDS ) {
 				// Delete files over one month old

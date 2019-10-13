@@ -4091,7 +4091,7 @@ abstract class GFAddOn {
 	public function get_field( $name, $settings ) {
 		foreach ( $settings as $section ) {
 			for ( $i = 0; $i < count( $section['fields'] ); $i ++ ) {
-				if ( $section['fields'][ $i ]['name'] == $name ) {
+				if ( rgar( $section['fields'][ $i ], 'name' ) == $name ) {
 					return $section['fields'][ $i ];
 				}
 			}

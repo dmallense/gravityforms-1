@@ -2591,6 +2591,60 @@ class GFFormsModel {
 	}
 
 	/**
+	 * Add note to entry containing the notification sending result
+	 *
+	 * @since  2.4.14
+	 *
+	 * @param integer        $entry_id       Id number for entry being processed.
+	 * @param string|boolean $result         The result returned by wp_mail().
+	 * @param array          $notification   The notification properties.
+	 * @param string         $error_info     Additional details for notifications with error.
+	 * @param array          $email          Array containing email details.
+	 * @param array          $note_args      Array containing text, type and subtype for the note.
+	 */
+	public static function add_notification_note( $entry_id, $result, $notification, $error_info = '', $email = array(), $note_args = array() ) {
+
+		// If $note_args is empty, use default arguments for Gravity Forms core notifications.
+		if ( empty( $note_args ) ) {
+			if ( $result === true ) {
+
+				$note_args['type'] = 'notification';
+				$note_args['subtype'] = 'success';
+				$note_args['text'] = esc_html__( 'WordPress successfully passed the notification email to the sending server.', 'gravityforms' );
+
+			} elseif ( $result === false ) {
+
+				$note_args['type'] = 'notification';
+				$note_args['subtype'] = 'error';
+				$note_args['text'] = esc_html__( 'WordPress was unable to send the notification email.', 'gravityforms' );
+
+				// Add additional error message if any.
+				if ( ! empty( $error_info ) ) {
+					$note_args['text'] .= PHP_EOL . $error_info;
+				}
+			}
+		}
+
+		/**
+		 * Allow customization of the Sending Result Note.
+		 *
+		 * @param array  $note_args        Array containing text, type and subtype for the note.
+		 * @param int    $entry_id         Id number for entry being processed.
+		 * @param bool   $result           The result returned by wp_mail().
+		 * @param array  $notification     The notification properties.
+		 * @param string $error_info       Additional details for notifications with error.
+		 * @param array  $email            Array containing email details.
+		 */
+		$note_args = apply_filters( 'gform_notification_note', $note_args, $entry_id, $result, $notification, $error_info, $email );
+
+		if ( ! empty( $note_args['text'] ) ) {
+			// translators: Notification name followed by its ID. e.g. Admin Notification (ID: 5d4c0a2a37204).
+			self::add_note( $entry_id, 0, sprintf( esc_html__( '%1$s (ID: %2$s)', 'gravityforms' ), $notification['name'], $notification['id'] ), $note_args['text'], $note_args['type'], $note_args['subtype'] );
+		}
+
+	}
+
+	/**
 	 * Gets the IP to be used within the entry.
 	 *
 	 * @since 2.2 Using $_SERVER['REMOTE_ADDR'].

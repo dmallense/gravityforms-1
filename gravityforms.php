@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms
 Plugin URI: https://www.gravityforms.com
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.14.3
+Version: 2.4.14.8
 Author: rocketgenius
 Author URI: https://www.rocketgenius.com
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.14.3';
+	public static $version = '2.4.14.8';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -248,6 +248,11 @@ class GFForms {
 		//initializing Add-Ons if necessary
 		if ( class_exists( 'GFAddOn' ) ) {
 			GFAddOn::init_addons();
+		}
+
+		if ( defined( 'OSDXP_DASHBOARD_VER' ) ) {
+			// Integration with osDXP.
+			require_once  plugin_dir_path( __FILE__ ) . 'includes/class-gf-osdxp.php';
 		}
 	}
 

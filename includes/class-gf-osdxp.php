@@ -205,10 +205,10 @@ class GF_OSDXP {
 			$min_cap = 'gform_full_access';
 		}
 
-		$addon_menus = array();
-		$addon_menus = apply_filters( 'gform_addon_navigation', $addon_menus );
-
-		$parent_menu = GFForms::get_parent_menu( $addon_menus );
+		$parent_menu = array(
+			'name' => 'gf_edit_forms',
+			'callback' => array('GFForms', 'forms')
+        );
 
 		/**
 		 * Remove Classic WP-Admin menu items.

@@ -1,3 +1,14 @@
+### 2.4.14.11
+- Updated handling of sending notes and logging messages when no entry id is provided. 
+
+### 2.4.14.10
+- Fixed blocked submissions with invisible reCaptcha.
+
+
+### 2.4.14.9
+- Fixed an issue with the osDXP integration which prevents the dashboard from loading.
+
+
 ### 2.4.14.8
 - Added the *[gform_logging_message]()* filter. Credit: Jamie Oastler.
 
